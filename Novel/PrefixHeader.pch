@@ -1,0 +1,148 @@
+//
+//  PrefixHeader.pch
+//  Novel
+//
+//  Created by th on 2017/1/31.
+//  Copyright © 2017年 th. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+//PodsHeader
+#import "UIView+Pro.h"
+#import <YYKit/YYKit.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <AFNetworking/AFNetworking.h>
+#import "AFNetworking.h"
+#import <MJRefresh/MJRefresh.h>
+#import "SVProgressHUD.h"
+#import <MBProgressHUD/MBProgressHUD.h>
+#import "Masonry.h"
+#import "FMDB.h"
+
+
+//定义
+#import "Defines.h"
+
+//Other
+#import "Http.h"
+#import "SQLiteTool.h"
+#import "Tools.h"
+#import "CoreArchive.h"
+#import "RegExpValidate.h"
+#import "UIImage+Tools.h"
+#import "NSString+Tools.h"
+#import "UILabel+Tools.h"
+#import "UIView+Pro.h"
+#import "YYControl.h"
+#import "YYPhotoGroupView.h"
+#import "YYLabel+Tools.h"
+#import "UIButton+Tools.h"
+#import "UIColor+RandomColor.h"
+#import "DateTools.h"
+#import "MBProgressHUD+JDragon.h"
+#import "CKAlertViewController.h"
+
+
+#import "ReadingManager.h"
+
+#define MainThreadPerformBlock(block) dispatch_async(dispatch_get_main_queue(),block)
+
+#pragma mark -- 服务器地址-----------------
+
+#define SERVERCE_HOST @"https://api.zhuishushenqi.com"  //主要host
+
+#define chapter_URL @"https://chapter2.zhuishushenqi.com" //章节内容
+
+#define statics_URL @"https://statics.zhuishushenqi.com"  //静态资源
+
+#define FONT_SIZE(size) [UIFont systemFontOfSize:size] //根据尺寸返回一个字体
+
+#define FONT_BOLD_SIZE(size) [UIFont boldSystemFontOfSize:size]  //根据尺寸返回一个粗体字体
+
+#define kColorWithRGB(r, g, b) [UIColor colorWithRed:(r) / 255.0f green:(g) / 255.0f blue:(b) / 255.0f alpha:1.0f]
+
+#define KNavigationBarColor kColorWithRGB(0.0, 197.0, 11.0) // 导航栏颜色--蓝色
+
+#define kWhiteColor [UIColor whiteColor]
+
+#define kBlackColor [UIColor blackColor] //黑色
+
+#define kNormalColor UIColorHex(333333) // 一般文本色
+
+#define kgrayColor UIColorHex(828282) // 灰色
+
+#define kLightGrayColor [UIColor lightGrayColor]
+
+#define kLineColor [UIColor colorWithWhite:0.90 alpha:1] //线条颜色
+
+#define KbackgroundColor kColorWithRGB(249, 249, 249) // 背景颜色
+
+#define KWhiteColor  [UIColor whiteColor] //白色
+
+#define  kClearColor [UIColor clearColor]
+
+// 获取状态栏的高度
+#define STATUS_BAR_HEIGHT ([[UIApplication sharedApplication] statusBarFrame].size.height)
+// 获取导航栏的高度
+#define NavigationBar_HEIGHT 44.0f
+//tabbar高
+#define TabBar_HEIGHT 49.0f
+
+#define kTitleH 44.0f
+
+//首页自定义仿nav的高度
+#define kNavigationHeight (STATUS_BAR_HEIGHT+NavigationBar_HEIGHT)
+
+#define kSpaceX 12.0f
+#define kCellX 15.0f //cell距离左边
+#define kCellY 12.0f //cell上下
+
+//cell里边的图片宽度
+#define kPicWidth_cell 50.0f
+//cell里边的图片高度
+#define kPicHeight_cell 60.0f
+
+//文本之间的间隔
+#define kTextInterval 5.0f
+
+//文字高度最大值
+#define kMaxTextHeight 20.0f
+
+//小说内容据屏幕左右边的距离
+#define kReadSpaceX 20.0f
+
+//小说内容据屏幕上边的距离
+#define kReadSpaceY 40.0f
+
+#define kReadingFrame CGRectMake(kReadSpaceX, kReadSpaceY, kScreenWidth - kReadSpaceX*2, kScreenHeight - kReadSpaceY*2)
+/**
+ *	@brief	调试输出
+ */
+
+#ifndef __OPTIMIZE__
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...){}
+#endif
+
+#define NSStringFormat(format,...) [NSString stringWithFormat:format,##__VA_ARGS__]
+
+#define kStart   NSDate *startTime = [NSDate date]
+
+#define kEnd   -[startTime timeIntervalSinceNow]
+
+
+/*******************
+ APP评分跳转链接
+ ******************* */
+#define APPCommentURL @"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1196204999&pageNumber=0&sortOrdering=2&mt=8"
+
+
+#endif /* PrefixHeader_pch */
