@@ -11,6 +11,7 @@
 #import "BaseViewController.h"
 
 @interface BaseViewController (){
+    
     BOOL _isLoad;
 }
 @end
@@ -18,6 +19,7 @@
 @implementation BaseViewController
 
 - (void)dealloc{
+    
     [[NSNotificationCenter defaultCenter]postNotificationName:notiDealloc object:self];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -79,31 +81,13 @@
                                                                       }];
     
     self.view.backgroundColor = KWhiteColor;
-    
-     [self customNavigationItem];
-}
 
-
-//自定制当前视图控制器的navigationItem
--(void)customNavigationItem{
-    
-    UIBarButtonItem *backbtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backimage"] style:UIBarButtonItemStylePlain target:self action:@selector(popDoBack)];
-    self.navigationItem.leftBarButtonItem =  backbtn;
-}
-
--(void)popDoBack{
-    if (_isPresent) {
-        [self dismissViewControllerAnimated:NO completion:nil];
-    }else{
-        [self.navigationController popViewControllerAnimated:NO];
-    }
 }
 
 
 -(void)oDealloc{
 //    NSLog(@"%@--自己释放了",NSStringFromClass([self class]));
 }
-
 
 /** < 加载动画 > */
 -(void)onLoadAnimatedByDidAppear{

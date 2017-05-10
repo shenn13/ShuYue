@@ -58,11 +58,11 @@ static NSString *ID = @"directoryID";
     
     _arrowView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_arrow_day"]];
     
-    _arrowView.frame = CGRectMake(_titleLabel.maxX_pro + 6, (self.height - _arrowView.image.height)*0.5, _arrowView.image.width, _arrowView.image.height);
+    _arrowView.frame = CGRectMake( kScreenWidth - _arrowView.image.width - kCellX , (self.height - _arrowView.image.height)*0.5, _arrowView.image.width, _arrowView.image.height);
     
     [self.contentView addSubview:_arrowView];
     
-    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(_titleLabel.x_pro, self.height-0.5, _titleLabel.width, 0.5)];
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth, self.height-0.5, _titleLabel.width, 0.5)];
     
     lineView.backgroundColor = kLineColor;
     

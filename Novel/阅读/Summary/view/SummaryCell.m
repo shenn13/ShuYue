@@ -190,10 +190,12 @@
     _rightView.frame = CGRectMake(kScreenWidth - kCellX - rightImage.width, (SummaryCellHeight - rightImage.height) * 0.5, rightImage.width, rightImage.height);
     
     _rightView.image = rightImage;
-    
+
     
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(kCellX, SummaryCellHeight - 0.5, kScreenWidth - kCellX*2, 0.5)];
+    
     lineView.backgroundColor = [UIColor colorWithRed:0.82 green:0.82 blue:0.82 alpha:1.00];
+    
     [self.contentView addSubview:lineView];
 }
 

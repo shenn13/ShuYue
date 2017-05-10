@@ -81,7 +81,6 @@
                     //目录
                     [weak_self.directoryVC reloadDirectoryView];
                     [weak_self presentViewController:weak_self.directoryVC animated:YES completion:nil];
-                    
                 }
                     break;
                 case 2: {

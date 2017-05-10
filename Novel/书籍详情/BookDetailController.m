@@ -32,8 +32,6 @@
     
     self.title = @"书籍详情";
     
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backimage"] style:UIBarButtonItemStylePlain target:self action:nil];
-    
     _bookDetailView = [BookDetailView new];
     
     _bookDetailView.hidden = YES;
