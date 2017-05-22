@@ -11,9 +11,12 @@
 #import "BooksListController.h"
 #import "ReadViewController.h"
 
-@interface BookDetailController()<BookDetailViewDelegate>
+@import GoogleMobileAds;
+@interface BookDetailController()<BookDetailViewDelegate,GADBannerViewDelegate,GADInterstitialDelegate>
 
 @property (nonatomic, strong) BookDetailView *bookDetailView;
+//插页广告
+@property(nonatomic, strong) GADInterstitial *interstitial;
 
 @end
 
@@ -41,6 +44,10 @@
     _bookDetailView.size = CGSizeMake(kScreenWidth, _bookDetailView.height);
     
     self.tableView.tableHeaderView = _bookDetailView;
+    
+    //显示广告**********************************************
+    [self setInterstitial];
+    //*****************************************************
 }
 
 #pragma mark - BookDetailViewDelegate - 布局
@@ -139,6 +146,35 @@
         [SVProgressHUD showErrorWithStatus:[error localizedDescription]];
     }];
     
+}
+
+
+//初始化插页广告
+- (void)setInterstitial {
+    
+    self.interstitial = [self createNewInterstitial];
+}
+//这个部分是因为多次调用 所以封装成一个方法
+- (GADInterstitial *)createNewInterstitial {
+    
+    GADInterstitial *interstitial = [[GADInterstitial alloc] initWithAdUnitID:AdMob_CID];
+    interstitial.delegate = self;
+    [interstitial loadRequest:[GADRequest request]];
+    return interstitial;
+}
+
+#pragma mark - GADInterstitialDelegate -
+- (void)interstitialDidReceiveAd:(GADInterstitial *)ad{
+    
+    if ([self.interstitial isReady]) {
+        [self.interstitial presentFromRootViewController:self];
+    }else{
+        NSLog(@"not ready~~~~");
+    }
+}
+//分配失败重新分配
+- (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error {
+    [self setInterstitial];
 }
 
 
