@@ -8,8 +8,12 @@
 
 #import "ContentViewController.h"
 #define kRandomColor ([UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0f])
+@import GoogleMobileAds;
 
-@interface ContentViewController ()
+@interface ContentViewController (){
+    
+    GADBannerView *_bannerView;
+}
 
 @end
 
@@ -42,7 +46,7 @@
 - (YYLabel *)pageLabel {
     if (!_pageLabel) {
         CGFloat w = 100;
-        _pageLabel = [[YYLabel alloc] initWithFrame:CGRectMake(kScreenWidth - kReadSpaceX - w, kScreenHeight - kReadSpaceY, w, kReadSpaceY)];
+        _pageLabel = [[YYLabel alloc] initWithFrame:CGRectMake(kScreenWidth - kReadSpaceX - w, kScreenHeight - kReadSpaceY*2, w, kReadSpaceY)];
         _pageLabel.font = FONT_SIZE(12);
         _pageLabel.textColor = kNormalColor;
         _pageLabel.textAlignment = NSTextAlignmentRight;
@@ -61,7 +65,18 @@
     NSData *imageData = [[NSUserDefaults standardUserDefaults] dataForKey:@"wall"];
     UIImage *image = [UIImage imageWithData:imageData];
     self.view.layer.contents = (__bridge id _Nullable)(image.CGImage);
-
+    
+    
+    CGPoint origin = CGPointMake(0, kScreenHeight - 65);
+    _bannerView = [[GADBannerView alloc] initWithAdSize:GADAdSizeFromCGSize(CGSizeMake(kScreenWidth, 65)) origin:origin];
+    _bannerView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:_bannerView];
+    
+    _bannerView.adUnitID = AdMob_BannerViewAdUnitID;
+    _bannerView.rootViewController = self;
+    GADRequest *request = [GADRequest request];
+    [_bannerView loadRequest:request];
+    
 }
 
 
@@ -87,14 +102,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
 

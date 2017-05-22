@@ -10,6 +10,11 @@
 #import "BasicNavigationController.h"
 #import "TabBarViewController.h"
 
+#import "UMMobClick/MobClick.h"
+
+
+@import GoogleMobileAds;
+
 @interface AppDelegate ()
 
 @end
@@ -23,6 +28,10 @@
     // 设置状态栏样式
     application.statusBarStyle = UIStatusBarStyleLightContent;
     application.statusBarHidden = NO;
+    
+    UMConfigInstance.appKey = UM_APP_KEY;
+    UMConfigInstance.channelId = nil;
+    [MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -44,6 +53,9 @@
     NSData *imageData = UIImageJPEGRepresentation(image, 100);
     [defaults setObject:imageData forKey:@"wall"];
     [defaults synchronize];
+    
+    
+    [GADMobileAds configureWithApplicationID:AdMob_APP_ID];
     
     return YES;
 }

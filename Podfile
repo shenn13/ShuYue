@@ -9,4 +9,7 @@ target 'Novel' do
   pod 'SVProgressHUD'
   pod 'MBProgressHUD'
   pod 'Masonry'
+  
+  pod 'Firebase/AdMob'
+  pod 'UMengAnalytics'
 end

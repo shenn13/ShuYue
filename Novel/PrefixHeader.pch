@@ -139,10 +139,18 @@
 #define kEnd   -[startTime timeIntervalSinceNow]
 
 
+//AdMob APPID 原生广告ID 插屏广告ID  所有APP固定 三个ID
+#define AdMob_APP_ID @"ca-app-pub-1195236589504706~3173807873"
+#define AdMob_CID @"ca-app-pub-1195236589504706/6127274271"
+#define AdMob_BannerViewAdUnitID @"ca-app-pub-1195236589504706/4650541079"
+
+
+//友盟统计
+#define UM_APP_KEY @"56444105e0f55a9d72001b52"
 /*******************
  APP评分跳转链接
  ******************* */
-#define APPCommentURL @"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1196204999&pageNumber=0&sortOrdering=2&mt=8"
+#define APPCommentURL @"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1221218462&pageNumber=0&sortOrdering=2&mt=8"
 
 
 #endif /* PrefixHeader_pch */

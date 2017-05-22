@@ -928,18 +928,18 @@
 				TargetAttributes = {
 					F3EE61FC1E409971008EB0BF = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = VTNCZD3KD7;
+						DevelopmentTeam = X75R9556F3;
 						ProvisioningStyle = Automatic;
 					};
 					F3EE62151E409971008EB0BF = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = V9XWDFRV5E;
+						DevelopmentTeam = X75R9556F3;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F3EE61FC1E409971008EB0BF;
 					};
 					F3EE62201E409971008EB0BF = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = V9XWDFRV5E;
+						DevelopmentTeam = X75R9556F3;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F3EE61FC1E409971008EB0BF;
 					};
@@ -1272,7 +1272,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
-				DEVELOPMENT_TEAM = VTNCZD3KD7;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = X75R9556F3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Novel/PrefixHeader.pch";
 				INFOPLIST_FILE = Novel/Info.plist;
@@ -1280,6 +1282,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xth.Novel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1290,7 +1293,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
-				DEVELOPMENT_TEAM = VTNCZD3KD7;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = X75R9556F3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Novel/PrefixHeader.pch";
 				INFOPLIST_FILE = Novel/Info.plist;
@@ -1298,6 +1303,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xth.Novel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1306,7 +1312,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = V9XWDFRV5E;
+				DEVELOPMENT_TEAM = X75R9556F3;
 				INFOPLIST_FILE = NovelTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xth.NovelTests;
@@ -1319,7 +1325,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = V9XWDFRV5E;
+				DEVELOPMENT_TEAM = X75R9556F3;
 				INFOPLIST_FILE = NovelTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xth.NovelTests;
@@ -1331,7 +1337,7 @@
 		F3EE62311E409972008EB0BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = V9XWDFRV5E;
+				DEVELOPMENT_TEAM = X75R9556F3;
 				INFOPLIST_FILE = NovelUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xth.NovelUITests;
@@ -1343,7 +1349,7 @@
 		F3EE62321E409972008EB0BF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = V9XWDFRV5E;
+				DEVELOPMENT_TEAM = X75R9556F3;
 				INFOPLIST_FILE = NovelUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xth.NovelUITests;
