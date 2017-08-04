@@ -22,37 +22,61 @@
 #import "AFNetworking.h"
 #import <MJRefresh/MJRefresh.h>
 #import "SVProgressHUD.h"
-#import <MBProgressHUD/MBProgressHUD.h>
 #import "Masonry.h"
 #import "FMDB.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 
 //定义
 #import "Defines.h"
 
 //Other
-#import "Http.h"
+#import "Tool.h"
+#import "PayManager.h"
+#import "RegExpValidate.h"
+#import "DateTools.h"
+#import "HUD.h"
+
+#import "httpUtil.h"
 #import "SQLiteTool.h"
-#import "Tools.h"
 #import "CoreArchive.h"
 #import "RegExpValidate.h"
-#import "UIImage+Tools.h"
-#import "NSString+Tools.h"
-#import "UILabel+Tools.h"
+
 #import "UIView+Pro.h"
+#import "MJDIYHeader.h"
+#import "MJDIYAutoFooter.h"
+#import "MJDIYBackFooter.h"
 #import "YYControl.h"
 #import "YYPhotoGroupView.h"
-#import "YYLabel+Tools.h"
-#import "UIButton+Tools.h"
-#import "UIColor+RandomColor.h"
 #import "DateTools.h"
-#import "MBProgressHUD+JDragon.h"
 #import "CKAlertViewController.h"
+
+#import "NSDictionary+Tools.h"
+#import "NSString+Tools.h"
+#import "UIButton+Tool.h"
+#import "UIColor+RandomColor.h"
+#import "UIImage+Tool.h"
+#import "UILabel+Tool.h"
+#import "UIView+Pro.h"
+#import "YYLabel+Tool.h"
+#import "UIViewController+Tool.h"
+#import "UITextField+Tool.h"
+#import "YYTextLayout+Tool.h"
+#import "BRPlaceholderTextView.h"
+#import "UIControl+Tool.h"
+#import "NSString+UrlEncode.h"
+#import "NSObject+Tool.h"
 
 
 #import "ReadingManager.h"
 
 #define MainThreadPerformBlock(block) dispatch_async(dispatch_get_main_queue(),block)
+
+#pragma mark -- 平台信息------------
+
+#define RCIMAppKey @""
+
+#define RCIMAppSecret @""
 
 #pragma mark -- 服务器地址-----------------
 
@@ -68,7 +92,7 @@
 
 #define kColorWithRGB(r, g, b) [UIColor colorWithRed:(r) / 255.0f green:(g) / 255.0f blue:(b) / 255.0f alpha:1.0f]
 
-#define KNavigationBarColor kColorWithRGB(0.0, 197.0, 11.0) // 导航栏颜色--蓝色
+#define KNavigationBarColor kColorWithRGB(245.0, 24.0, 30.0) // 导航栏颜色--红色
 
 #define kWhiteColor [UIColor whiteColor]
 
@@ -101,7 +125,9 @@
 #define kNavigationHeight (STATUS_BAR_HEIGHT+NavigationBar_HEIGHT)
 
 #define kSpaceX 12.0f
+
 #define kCellX 15.0f //cell距离左边
+
 #define kCellY 12.0f //cell上下
 
 //cell里边的图片宽度
@@ -121,7 +147,8 @@
 //小说内容据屏幕上边的距离
 #define kReadSpaceY 40.0f
 
-#define kReadingFrame CGRectMake(kReadSpaceX, kReadSpaceY, kScreenWidth - kReadSpaceX*2, kScreenHeight - kReadSpaceY*2)
+#define kReadingFrame CGRectMake(kReadSpaceX, kReadSpaceY, kScreenWidth - kReadSpaceX*2, kScreenHeight - kReadSpaceY*1.5)
+
 /**
  *	@brief	调试输出
  */
@@ -134,19 +161,21 @@
 
 #define NSStringFormat(format,...) [NSString stringWithFormat:format,##__VA_ARGS__]
 
+
 #define kStart   NSDate *startTime = [NSDate date]
+
 
 #define kEnd   -[startTime timeIntervalSinceNow]
 
 
 //AdMob APPID 原生广告ID 插屏广告ID  所有APP固定 三个ID
-#define AdMob_APP_ID @"ca-app-pub-1195236589504706~3173807873"
-#define AdMob_CID @"ca-app-pub-1195236589504706/6127274271"
-#define AdMob_BannerViewAdUnitID @"ca-app-pub-1195236589504706/4650541079"
+#define AdMob_APP_ID @"ca-app-pub-1195236589504706~6266875079"
+#define AdMob_CID @"ca-app-pub-1195236589504706/9220341474"
+#define AdMob_BannerViewAdUnitID @"ca-app-pub-1195236589504706/7743608277"
 
 
 //友盟统计
-#define UM_APP_KEY @"56444105e0f55a9d72001b52"
+#define UM_APP_KEY @"59722e1c75ca3555bd0015db"
 /*******************
  APP评分跳转链接
  ******************* */
